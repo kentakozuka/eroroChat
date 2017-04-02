@@ -23,13 +23,13 @@ MySQLのリモートホストに接続するコマンド
 `mysql -h us-cdbr-iron-east-03.cleardb.net -u bac9292c240c4a -p`
 
 herokuのリモートレポジトリを追加するコマンド  
-`heroku git:remote -a <herokuアプリ名>`
-`heroku git:remote -a secret-gorge-46628`
+`heroku git:remote -a <herokuアプリ名>`  
+`heroku git:remote -a secret-gorge-46628`  
 
 アプリ設定を表示  
-`heroku config --app secret-gorge-46628`
+`heroku config --app secret-gorge-46628`  
 
 
 ログをリアルタイムで表示  
-`heroku logs --tail --app secret-gorge-46628`
+`heroku logs --tail --app secret-gorge-46628`  
 
