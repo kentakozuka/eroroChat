@@ -1,16 +1,21 @@
-0.
-herokuのアカウントを作成する
+eroroChat
+===================
 
-1.
-command01.shを実行
-$ bash command01.sh
+ディレクトリ構成
 
-2.
-package.json内のname項目をherokuアプリ名に変更
+    "# eroroChat" 
+    .
+    ├── chat.js
+    ├── DB.sql
+    ├── doc
+    │   ├── command01.sh
+    │   └── command02.sh
+    ├── index.html
+    ├── package.json
+    ├── Procfile
+    └── README.md
 
-3.
-command01.shを実行
-$ bash command01.sh
+
 
 
 MySQLのリモートホストに接続するコマンド
@@ -28,4 +33,3 @@ heroku config --app secret-gorge-46628
 ログをリアルタイムで表示
 heroku logs --tail --app secret-gorge-46628
 
-"# eroroChat" 
