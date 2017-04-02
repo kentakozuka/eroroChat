@@ -52,6 +52,7 @@ function handleDisconnect() {
 handleDisconnect();
 
 
+
 //ユーザ数を格納するグローバル変数
 var userCnt = {
 		a : 0,
