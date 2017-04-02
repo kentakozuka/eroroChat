@@ -55,8 +55,9 @@ handleDisconnect();
 
 //ユーザ数を格納するグローバル変数
 var userCnt = {
-		a : 0,
-		b : 0
+		a			: 0,
+		b			: 0
+		kenta_bot	: 0
 	}
 
 
