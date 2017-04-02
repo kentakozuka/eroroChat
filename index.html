@@ -75,6 +75,9 @@ ul {
 //サーバー側とつなぐため
 var socket = io();
 
+/**
+ * HTMLの読み込みが終わった時点で実行される
+ **/
 $(function() {
 	// 送信されたときの処理  
 	$('form').submit(function() {
@@ -92,14 +95,31 @@ $(function() {
 		return false;
 	});
 		
-	// チャンネルを変えた時の処理
+
+	/***********************************
+	 * JQuery（画面）のイベントハンドラの登録
+ 	 * 詳細は以下参照
+	 * https://api.jquery.com/
+	 ***********************************/
+
+	/**
+	 * チャンネルを変えた時の処理
+ 	**/
 	$('#channel').on('change', function() {
 		// チャンネル変更する
 		socket.emit('change channel', $('#channel').val());
 	});
 });
 
-//ここで作ったイベント名でサーバーサイドの処理を紐付ける
+/***********************************
+ * Socket.IOのイベントハンドラの登録
+ * 詳細は以下参照
+ * https://socket.io/
+ ***********************************/
+/**
+ * 接続したときに呼ばれるイベント
+ * ここで作ったイベント名でサーバーサイドの処理を紐付ける
+ **/
 socket.on('welcome', function(messageArray) {
 	//debug
 	//console.log(messageArray);
@@ -114,23 +134,37 @@ socket.on('welcome', function(messageArray) {
 	});
 });
 
+/**
+ * 全ユーザ上のユーザ数を更新
+ **/
 socket.on('user cnt', function(cnt) {
 	// 取得したメッセージをulに追加
 	$('#user_cnt p').html('').text("(A :" + cnt.a +"人) (B :" + cnt.b + "人)");
 });
 
+/**
+ * 誰かがメッセージを送信したときに呼ばれる
+ * @param メッセージ
+ * @param ユーザID
+ **/
 socket.on('message', function(msj, id) {
 	// 取得したメッセージをulに追加
 	$('#message').append($('<li>').text(id + " : " + msj));
 });
 
+/**
+ * チャンネルが変更されたときに呼ばれるイベント
+ * @param チャンネル
+ **/
 socket.on('change channel', function(channel) {
 	// チャンネルが変わったことをメッセージで表示
 	$('#message').html('').append($('<li>').text('「チャンネル' + channel + '」に変更されました!'));
 });
 
+/**
+ * チャンネルが変わったことをメッセージで表示
+ **/
 socket.on('get id', function(id) {
-	// チャンネルが変わったことをメッセージで表示
 	$('#user_name p').html('').text(id);
 });
 </script>
