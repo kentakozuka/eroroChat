@@ -57,7 +57,7 @@ handleDisconnect();
 var userCnt = {
 		a			: 0,
 		b			: 0
-		kenta_bot	: 0
+		kentaBot	: 0
 	}
 
 
@@ -127,8 +127,10 @@ io.on('connection', function(socket) {
 		if (channel === 'A') {
 			userCnt.a--;
 	
-		} else {
+		} else if(channel === 'B') {
 			userCnt.b--;
+		} else {
+			userCnt.kentaBot--;
 		}
 		//アクティブユーザを更新
 		io.emit('user cnt', userCnt);
@@ -148,10 +150,24 @@ io.on('connection', function(socket) {
 			if (userCnt.b > 0) {
 				--userCnt.b;
 			}
+			if (userCnt.kentaBot > 0) {
+				--userCnt.kentaBot;
+			}
+		} else if (newChannel === 'B') {
+			++userCnt.b;
+			if (userCnt.a > 0) {
+				--userCnt.a;
+			}
+			if (userCnt.kentaBot > 0) {
+				--userCnt.kentaBot;
+			}
 		} else {
 			++userCnt.b;
 			if (userCnt.a > 0) {
 				--userCnt.a;
+			}
+			if (userCnt.b > 0) {
+				--userCnt.b;
 			}
 		}
 		io.emit('user cnt', userCnt);
