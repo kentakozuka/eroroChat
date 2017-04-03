@@ -17,6 +17,9 @@ eroroChat
 
 
 
+アプリ設定を表示  
+`heroku config --app <アプリ名>`  
+`heroku config --app secret-gorge-46628`  
 
 MySQLのリモートホストに接続するコマンド  
 `mysql -h <ホスト名> -u <ユーザ名> -p`
@@ -25,10 +28,6 @@ MySQLのリモートホストに接続するコマンド
 herokuのリモートレポジトリを追加するコマンド  
 `heroku git:remote -a <herokuアプリ名>`  
 `heroku git:remote -a secret-gorge-46628`  
-
-アプリ設定を表示  
-`heroku config --app secret-gorge-46628`  
-
 
 ログをリアルタイムで表示  
 `heroku logs --tail --app secret-gorge-46628`  
