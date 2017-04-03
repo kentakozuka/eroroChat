@@ -8,7 +8,7 @@ var POST	= process.env.PORT || 8080;
 
 //DBの設定
 var db_config = {
-    host:		'fa04ea25@us-cdbr-iron-east-03.cleardb.net',
+    host:		'us-cdbr-iron-east-03.cleardb.net',
     user:		'bd61b3be7eaa27',
     password:	'fa04ea25',
     database:	'heroku_3f873eb64d6cbc6'
