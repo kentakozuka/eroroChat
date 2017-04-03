@@ -22,10 +22,10 @@ eroroChat
 `heroku config --app secret-gorge-46628`  
 
 MySQLのリモートホストに接続するコマンド  
-`mysql -h <ホスト名> -u <ユーザ名> -p`
-`mysql -h us-cdbr-iron-east-03.cleardb.net -u bac9292c240c4a -p`
+`mysql -h <ホスト名> -u <ユーザ名> -p`  
+`mysql -h us-cdbr-iron-east-03.cleardb.net -u bac9292c240c4a -p`  
 
-sqlファイルを実行するコマンド
+sqlファイルを実行するコマンド  
 `source <sqlファイルパス>`  
 `source ./DB.sql`  
 
