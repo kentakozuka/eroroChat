@@ -41,3 +41,7 @@ herokuのリモートレポジトリを追加するコマンド
 `heroku logs --tail --app <herokuアプリ名>`  
 `heroku logs --tail --app secret-gorge-46628`  
 
+
+
+環境変数を使えばDB情報ハードコードなしでいける
+process.env.XXXXXX
