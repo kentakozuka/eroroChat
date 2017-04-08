@@ -61,6 +61,7 @@ $(function() {
  * ここで作ったイベント名でサーバーサイドの処理を紐付ける
  **/
 socket.on('welcome', function(id, messageArray) {
+	socketId = id;
 	//debug
 	//console.log(messageArray);
 
