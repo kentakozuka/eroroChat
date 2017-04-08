@@ -6,13 +6,6 @@ var io		= require('socket.io')(http);
 var POST	= process.env.PORT || 8080;
 
 
-//DBの設定
-//var db_config = {
-//    host:		'us-cdbr-iron-east-03.cleardb.net',
-//    user:		'bd61b3be7eaa27',
-//    password:	'fa04ea25',
-//    database:	'heroku_3f873eb64d6cbc6'
-//};
 
 
 //DBに接続する関数
@@ -23,9 +16,6 @@ function handleDisconnect() {
 	// the old one cannot be reused.
 	// The server is either down
 	
-
-    //connection = mysql.createConnection(db_config); 
-													
 	connection = mysql.createConnection(process.env.DATABASE_URL);
     connection.connect(function(err) {              	
 		// or restarting (takes a while sometimes).
