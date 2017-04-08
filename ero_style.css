@@ -143,6 +143,15 @@ ul {
     -webkit-animation: bounce 2s ease-in-out;
     animation: bounce 2s ease-in-out;
 }
+.text_button {
+	width:100%;
+}
+.msg_textarea {
+	width:70%;
+}
+.send_button {
+	width:30%;
+}
 @-webkit-keyframes bounce {
     5%  { -webkit-transform: scale(1.1, .8); }
     10% { -webkit-transform: scale(.8, 1.1) translateY(-5px); }

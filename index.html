@@ -121,8 +121,10 @@ socket.on('get id', function(id) {
       <option value="B">Bカップ</option>
       <option value="kenta_bot">kentaのbotチャンネル</option>
     </select>
-    <input type="text" id="msj" placeholder="メッセージを入力してください...">
-    <input type="submit" id="btn" value="送信">
+	<div class="text_button">
+		<input type="text" id="msj" class="msg_textarea" placeholder="メッセージを入力してください...">
+		<input class="button" type="submit" value="送信" class="send_button">
+	</div>
     </form> 
  </div>
 </body>
