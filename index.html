@@ -72,7 +72,7 @@ socket.on('welcome', function(id, messageArray) {
 	messageArray.forEach(function(msg) {
 		console.log(id);
 		//自分のIDの場合は右に表示
-		if(msg.user_id == socketId) {
+		if(id == socketId) {
 			$('#message').append($('<li class="right_balloon">').text(id + " : " + msg.comment));
 		} else {
 			$('#message').append($('<li class="left_balloon">').text(id + " : " + msg.comment));
