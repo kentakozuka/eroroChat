@@ -54,6 +54,7 @@ var userCnt = {
 		kentaBot	: 0
 	}
 
+//スタイルシートを返す
 app.get('/ero_style.css', function(req, res) {
 	//index.htmlに遷移する
 	res.sendFile(__dirname + '/ero_style.css');
