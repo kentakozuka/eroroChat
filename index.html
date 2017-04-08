@@ -69,8 +69,10 @@ socket.on('welcome', function(messageArray) {
 	//DBから取得したメッセージをulに追加
 	messageArray.forEach(function(msg) {
 		//console.log(msg);
-		$('#message').append($('<li>').text(msg.user_id + " : " + msg.comment));
+		$('#message').append($('<li class="left_balloon">').text(msg.user_id + " : " + msg.comment));
 	});
+    //<p class="left_balloon">aokiaokiaokiaokiaokiaoki</p>
+    //<p class="right_balloon">talk contents</p>
 });
 
 /**
@@ -110,8 +112,6 @@ socket.on('get id', function(id) {
   <div id="info">
     <div id="user_name">あなたのID&nbsp;:&nbsp;<p></p></div>
     <div id="user_cnt">アクティブユーザ&nbsp;:&nbsp;<p></p></div>
-    <p class="left_balloon">aokiaokiaokiaokiaokiaoki</p>
-    <p class="right_balloon">talk contents</p>
   </div>
   <ul id="message"></ul>
   <div id="controls">
