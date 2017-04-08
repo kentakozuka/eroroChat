@@ -86,7 +86,7 @@ sqlファイルを実行する
 
     var connection = mysql.createConnection(process.env.DATABASE_URL);  
 
-##その他
+## その他
 
 #Herokuログイン
 heroku login
