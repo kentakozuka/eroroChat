@@ -72,6 +72,7 @@ ul {
     padding: 20px;
     background: #EFE0FF;
     color: magenta;
+	margin-bottom: 80px;
 }
 #controls {
     position: fixed;
@@ -226,7 +227,6 @@ ul {
     margin-right: 20%;
     clear: both;
     max-width: 500px;
-    float: left;
 }
 .left_balloon:after,
 .left_balloon:before {
@@ -263,7 +263,6 @@ ul {
     margin-left: 20%;
     clear: both;
     max-width: 500px;
-    float: right;
 }
 .right_balloon:after,
 .right_balloon:before {
