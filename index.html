@@ -120,23 +120,23 @@ socket.on('get id', function(id) {
 	$('#user_name p').html('').text(id);
 });
 </script>
-  <div id="info">
-    <div id="user_name">あなたのID&nbsp;:&nbsp;<p></p></div>
-    <div id="user_cnt">アクティブユーザ&nbsp;:&nbsp;<p></p></div>
-  </div>
-  <ul id="message"></ul>
-  <div id="controls">
-    <form action="">
-    <select name="channel" id="channel">
-      <option value="A" selected>Aカップ</option>
-      <option value="B">Bカップ</option>
-      <option value="kenta_bot">kentaのbotチャンネル</option>
-    </select>
-	<div class="text_button">
-		<input type="text" id="msj" class="msg_textarea" placeholder="メッセージを入力してください...">
-		<input class="button" type="submit" value="送信" class="send_button">
+	<div id="info">
+		<div id="user_name">あなたのID&nbsp;:&nbsp;<p></p></div>
+		<div id="user_cnt">アクティブユーザ&nbsp;:&nbsp;<p></p></div>
 	</div>
-    </form> 
+	<ul id="message"></ul>
+	<div id="controls">
+		<form action="">
+			<select name="channel" id="channel">
+				<option value="A" selected>Aカップ</option>
+				<option value="B">Bカップ</option>
+				<option value="kenta_bot">kentaのbotチャンネル</option>
+			</select>
+			<div class="text_button">
+				<input type="text" id="msj" class="msg_textarea" placeholder="メッセージを入力してください...">
+				<input class="button" type="submit" value="送信" class="send_button">
+		</div>
+	</form> 
  </div>
 </body>
 </html>

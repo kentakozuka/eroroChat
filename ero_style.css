@@ -146,6 +146,7 @@ ul {
 }
 .text_button {
 	width:100%;
+    background:#ffffff;
 }
 .msg_textarea {
 	width:70%;
