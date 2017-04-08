@@ -88,7 +88,7 @@ io.on('connection', function(socket) {
             throw err;
         }
 		//「ようこそ」と「ID」を自分の画面だけに表示
-		socket.emit('welcome', rows);
+		socket.emit('welcome', socket.id, rows);
 		socket.emit('get id', socket.id);
 	
 		//接続時に同じチャンネルの人に入室を伝える

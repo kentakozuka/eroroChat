@@ -14,6 +14,7 @@
 <script>
 //サーバー側とつなぐため
 var socket = io();
+var socketId;
 
 /***********************************
  * JQuery（画面）のイベントハンドラの登録
@@ -59,7 +60,7 @@ $(function() {
  * 接続したときに呼ばれるイベント
  * ここで作ったイベント名でサーバーサイドの処理を紐付ける
  **/
-socket.on('welcome', function(messageArray) {
+socket.on('welcome', function(id, messageArray) {
 	//debug
 	//console.log(messageArray);
 
@@ -70,7 +71,7 @@ socket.on('welcome', function(messageArray) {
 	messageArray.forEach(function(msg) {
 		//console.log(msg);
 		$('#message').append($('<li class="left_balloon">').text(msg.user_id + " : " + msg.comment));
-		console.log(socket.io);
+		console.log(id);
 	});
     //<p class="left_balloon">aokiaokiaokiaokiaokiaoki</p>
     //<p class="right_balloon">talk contents</p>
