@@ -70,6 +70,7 @@ socket.on('welcome', function(messageArray) {
 	messageArray.forEach(function(msg) {
 		//console.log(msg);
 		$('#message').append($('<li class="left_balloon">').text(msg.user_id + " : " + msg.comment));
+		console.log(JSON.JSON.stringify(socket));
 	});
     //<p class="left_balloon">aokiaokiaokiaokiaokiaoki</p>
     //<p class="right_balloon">talk contents</p>
@@ -91,7 +92,7 @@ socket.on('user cnt', function(cnt) {
 socket.on('message', function(msj, id) {
 	// 取得したメッセージをulに追加
 	$('#message').append($('<li class="left_balloon">').text(id + " : " + msj));
-	console.log(JSON.JSON.stringify(socket);
+	console.log(JSON.JSON.stringify(socket));
 });
 
 /**
