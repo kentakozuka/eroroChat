@@ -25,13 +25,6 @@ http://eelee.herokuapp.com/
 `heroku config --app <アプリ名>`  
 `heroku config --app secret-gorge-46628`  
 
-MySQLのリモートホストに接続するコマンド  
-`mysql -h <ホスト名> -u <ユーザ名> -p`  
-`mysql -h us-cdbr-iron-east-03.cleardb.net -u bac9292c240c4a -p`  
-
-sqlファイルを実行するコマンド  
-`source <sqlファイルパス>`  
-`source ./DB.sql`  
 
 herokuのリモートレポジトリを追加するコマンド  
 `heroku git:remote -a <herokuアプリ名>`  
@@ -41,10 +34,43 @@ herokuのリモートレポジトリを追加するコマンド
 `heroku logs --tail --app <herokuアプリ名>`  
 `heroku logs --tail --app secret-gorge-46628`  
 
+## DBテーブル作成方法
+
+以下のコマンドを実行
+
+    heroku config --app <アプリ名>
+
+以下が表示される
+
+    === <アプリ名> Config Vars
+    CLEARDB_DATABASE_URL: mysql://<ユーザ名>:<パスワード>@<ホスト名>/<DB名>?reconnect=true
+
+MySQLのリモートホストに接続する
+
+    mysql -h <ホスト名> -u <ユーザ名> -p
+
+例えば
+
+    mysql -h us-cdbr-iron-east-03.cleardb.net -u bac9292c240c4a -p
+
+使用するDBを選択する
+
+    use <DB名>;
+
+sqlファイルを実行する
+
+    source <sqlファイルパス>
+
+例えば
+
+    source ./DB.sql
 
 
 ## DB接続方法
 
+出力された情報を以下で環境変数に登録
+
+    heroku config:set DATABASE_URL="mysql2://<ユーザ名>:<パスワード>@<ホスト名>/<DB名>?reconnect=true&encoding=utf8mb4"
 
 下記のように記述すればDB接続は可能だが、ハードコーディングは良くないし、
 githubに公開する場合にセキュリティ的にだだ漏れ
@@ -65,10 +91,11 @@ githubに公開する場合にセキュリティ的にだだ漏れ
 
 出力されたURLを以下で環境変数に登録
 
-    heroku config:set DATABASE_URL="mysql2://<username>:<password>@<host>/<database>?reconnect=true&encoding=utf8mb4"
+    heroku config:set DATABASE_URL="mysql2://<ユーザ名>:<パスワード>@<ホスト名>/<DB名>?reconnect=true&encoding=utf8mb4"
 
 
 あとは以下のようにコードから環境変数を使用してDBに接続する
+
     var connection = mysql.createConnection(process.env.DATABASE_URL);  
 
 
