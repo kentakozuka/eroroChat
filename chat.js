@@ -14,10 +14,9 @@ var POST	= process.env.PORT || 8080;
 //    database:	'heroku_3f873eb64d6cbc6'
 //};
 
-var connection = mysql.createConnection(process.env.DATABASE_URL);
 
 //DBに接続する関数
-//var connection;
+var connection;
 function handleDisconnect() {
     console.log('1. connecting to db:');		
 	// Recreate the connection, since
@@ -25,7 +24,8 @@ function handleDisconnect() {
 	// The server is either down
     connection = mysql.createConnection(db_config); 
 													
-    connection.connect(function(err) {              	
+	connection = mysql.createConnection(process.env.DATABASE_URL);
+//    connection.connect(function(err) {              	
 		// or restarting (takes a while sometimes).
         if (err) {                                     
             console.log('2. error when connecting to db:', err);
