@@ -68,3 +68,29 @@ var connection = mysql.createConnection(db_config);
 `var connection = mysql.createConnection(process.env.DATABASE_URL);  
 
 
+#Herokuログイン
+heroku login
+
+#プロジェクトのディレクトリに移動
+#もうディレクトリ内なら不要
+#cd <app-path>
+#たとえば
+#cd ~/work/chat
+
+#gitを始めるコマンド
+#git init
+
+#全部のファイルをgitに認識させる（ステージに上げる）
+git add .
+
+#コミット
+git commit -m "comment"
+
+#herokuのリモートレポジトリを作成（アプリが作られる）
+heroku create
+
+#githubにプッシュ
+git push origin master
+
+#herokuへプッシュ（デプロイ）
+git push heroku master
