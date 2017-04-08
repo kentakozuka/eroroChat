@@ -22,10 +22,12 @@ function handleDisconnect() {
 	// Recreate the connection, since
 	// the old one cannot be reused.
 	// The server is either down
-    connection = mysql.createConnection(db_config); 
+	
+
+    //connection = mysql.createConnection(db_config); 
 													
 	connection = mysql.createConnection(process.env.DATABASE_URL);
-//    connection.connect(function(err) {              	
+    connection.connect(function(err) {              	
 		// or restarting (takes a while sometimes).
         if (err) {                                     
             console.log('2. error when connecting to db:', err);
