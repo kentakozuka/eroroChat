@@ -7,15 +7,17 @@ var POST	= process.env.PORT || 8080;
 
 
 //DBの設定
-var db_config = {
-    host:		'us-cdbr-iron-east-03.cleardb.net',
-    user:		'bd61b3be7eaa27',
-    password:	'fa04ea25',
-    database:	'heroku_3f873eb64d6cbc6'
-};
+//var db_config = {
+//    host:		'us-cdbr-iron-east-03.cleardb.net',
+//    user:		'bd61b3be7eaa27',
+//    password:	'fa04ea25',
+//    database:	'heroku_3f873eb64d6cbc6'
+//};
+
+var connection = mysql.createConnection(process.env.DATABASE_URL);
 
 //DBに接続する関数
-var connection;
+//var connection;
 function handleDisconnect() {
     console.log('1. connecting to db:');		
 	// Recreate the connection, since
