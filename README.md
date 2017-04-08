@@ -68,6 +68,15 @@ sqlファイルを実行する
 
 ## DB接続方法
 
+以下のコマンドを実行
+
+    heroku config --app <アプリ名>
+
+以下が表示される
+
+    === <アプリ名> Config Vars
+    CLEARDB_DATABASE_URL: mysql://<ユーザ名>:<パスワード>@<ホスト名>/<DB名>?reconnect=true
+
 出力された情報を以下で環境変数に登録
 
     heroku config:set DATABASE_URL="mysql2://<ユーザ名>:<パスワード>@<ホスト名>/<DB名>?reconnect=true&encoding=utf8mb4"
