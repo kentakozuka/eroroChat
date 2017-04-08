@@ -1,5 +1,4 @@
 # eroroChat
-===================
 
 
 http://eelee.herokuapp.com/
@@ -22,17 +21,21 @@ http://eelee.herokuapp.com/
 
 
 アプリ設定を表示  
-`heroku config --app <アプリ名>`  
-`heroku config --app secret-gorge-46628`  
+
+    heroku config --app <アプリ名>
+    heroku config --app secret-gorge-46628
 
 
-herokuのリモートレポジトリを追加するコマンド  
-`heroku git:remote -a <herokuアプリ名>`  
-`heroku git:remote -a secret-gorge-46628`  
+herokuのリモートレポジトリを追加するコマンド
 
-ログをリアルタイムで表示  
-`heroku logs --tail --app <herokuアプリ名>`  
-`heroku logs --tail --app secret-gorge-46628`  
+    heroku git:remote -a <herokuアプリ名>
+    heroku git:remote -a secret-gorge-46628
+
+ログをリアルタイムで表示
+
+    heroku logs --tail --app <herokuアプリ名>
+    heroku logs --tail --app secret-gorge-46628
+
 
 ## DBテーブル作成方法
 
