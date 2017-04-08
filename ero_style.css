@@ -74,7 +74,7 @@ ul {
     color: magenta;
 }
 #controls {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     left: 0px;
     padding: 20px;
