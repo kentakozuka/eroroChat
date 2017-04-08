@@ -3,68 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="ero_style.css">
 <title>eroroChat</title>
-<style>
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-}
-body {
-	font-family: Verdana;
-}
-ul {
-	list-style-type: none;
-	padding: 30px;
-	margin-bottom: 160px;
-	background-color: #4682B4;
-	color: white;
-}
-#controls {
-	position: fixed;
-	bottom: 0px;
-	left: 0px;
-	padding: 20px;
-	margin-top: -160px;
-	display: block;
-	width: 100%;
-	background-color: #4682B4;
-}
-#controls #msj {
-	float: left;
-	width: 78%;
-	display: block;
-	padding: 20px;
-	border-radius: 5px;
-}
-#controls #btn {
-	float: right;
-	width: 20%;
-	height: 57px;
-	display: block;
-	background: white;
-	border: 1px solid #aaa;
-	font-size: 1.4em;
-	border-radius: 5px;
-}
-#controls #channel {
-	display: block;
-	width: 100%;
-	font-size: 1.2em;
-	padding: 20px;
-	background: white;
-	margin-bottom: 10px;
-	height: 45px;
-}
-#info {
-	padding: 15px 10px;
-	background: #efefef;
-}
-#user_name p,
-#user_cnt p {
-	display: inline-block;
-}
-</style>
 <!-- SocketIOを持ってくる -->
 <script src="/socket.io/socket.io.js"></script>
 <!-- JQueryを持ってくる -->
@@ -170,13 +110,15 @@ socket.on('get id', function(id) {
   <div id="info">
     <div id="user_name">あなたのID&nbsp;:&nbsp;<p></p></div>
     <div id="user_cnt">アクティブユーザ&nbsp;:&nbsp;<p></p></div>
+    <p class="left_balloon">aokiaokiaokiaokiaokiaoki</p>
+    <p class="right_balloon">talk contents</p>
   </div>
   <ul id="message"></ul>
   <div id="controls">
     <form action="">
     <select name="channel" id="channel">
-      <option value="A">チャンネルA</option>
-      <option value="B">チャンネルB</option>
+      <option value="A" selected>Aカップ</option>
+      <option value="B">Bカップ</option>
       <option value="kenta_bot">kentaのbotチャンネル</option>
     </select>
     <input type="text" id="msj" placeholder="メッセージを入力してください...">
