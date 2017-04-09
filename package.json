@@ -11,7 +11,7 @@
     	"express-session"	: "*",
     	"ejs"				: "*",
     	"passport"			: "*",
-    	"passpord-local"	: "*"
+    	"passport-local"	: "*"
 	},
 	"devDependencies": {},
 	"scripts"		: {
