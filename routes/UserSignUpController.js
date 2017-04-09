@@ -48,7 +48,7 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 	    		    }
 					resolve(rows);
 	    		});
-			}
+			});
 		})();
 		//セレクト結果を受け取る
 		.then(function(result) {
