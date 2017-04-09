@@ -9,7 +9,7 @@
 
 var io		= require('socket.io')(http);
 
-var ChatController = function(app, CommonConst, DbConnection){
+var ChatController = function(app, http, CommonConst, DbConnection){
 
 	//ユーザ数を格納する変数
 	var userCnt = {

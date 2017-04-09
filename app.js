@@ -49,7 +49,7 @@ var DbConnection				= require('./bin/DbConnection.js'							);
  * コントローラ
  **/
 //メニュー画面
-ChatController					= require("./routes/ChatController.js"					)(app, CommonConst, DbConnection);
+ChatController					= require("./routes/ChatController.js"					)(app, http, CommonConst, DbConnection);
 
 
 //接続待ち状態になる
