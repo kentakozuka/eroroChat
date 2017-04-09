@@ -43,9 +43,10 @@ function handleDisconnect() {
         } else {
             throw err;
         }
+		console.log('DB connected');
     });
 }
+handleDisconnect();
 
-console.log('DB connected');
 
 module.exports = connection;
