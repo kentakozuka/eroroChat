@@ -59,7 +59,7 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 
 				console.log(result);
 
-							console.log('△△△△△△△△△△△');
+				console.log('△△△△△△△△△△△');
 				//ユーザ名重複チェック
 				var userNameExists = result.length === 1;
 				if (userNameExists) {
@@ -68,7 +68,7 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 
 				console.log(fields);
 				//インサート
-				connection.query(
+				DbConnection.query(
 						'INSERT INTO t_user SET ?'
 					,	fields
 					,	function (error, results, fields) {
