@@ -24,6 +24,7 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 		,	user_password	: req.body.password
 		,	email			: req.body.email
 		};
+		console.log(fields);
 
 		//クエリを作成
 		var queryArray = [];
@@ -37,6 +38,7 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 		queryArray.push('LIMIT 1'						);
 		//クエリを結合
 		var query = queryArray.join(' ');
+		console.log(query);
 
 		(function () {
 			return new Promise(function(resolve, reject) {
@@ -46,6 +48,7 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 	    		        console.log('error: ', err);
 	    		        reject();
 	    		    }
+					console.log('▲▲▲▲▲▲▲▲▲▲');
 					resolve(rows);
 	    		});
 			});
