@@ -5,7 +5,7 @@ var CommonConst = {
 
 	//ページID
 		//view
-	,	PAGE_ID_VIEW_CHAT				: 'chat'
+		PAGE_ID_VIEW_CHAT				: 'chat'
 	
 	//テーブル名
 	//,	TABLE_NAME_QUESTION				: 'QUESTION'
