@@ -56,11 +56,13 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 		//セレクト結果を受け取る
 		.then(function(result) {
 			return new Promise(function(resolve, reject) {
+
 				console.log(result);
 
 				//ユーザ名重複チェック
 				var userNameExists = result.length === 1;
 				if (userNameExists) {
+							console.log('△△△△△△△△△△△');
 					reject();
 				}
 
@@ -70,7 +72,6 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 						'INSERT INTO t_user SET ?'
 					,	fields
 					,	function (error, results, fields) {
-							console.log('△△△△△△△△△△△');
 							if (error) throw error;
 								console.log(result.insertId);
 						}
