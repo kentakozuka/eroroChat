@@ -38,7 +38,7 @@ app.use(session({
 	resave				: false,
 	saveUninitialized	: true
 }));
-app.use(passport.initialize());
+//app.use(passport.initialize());
 
 /**
  * 共通処理を呼び出し
