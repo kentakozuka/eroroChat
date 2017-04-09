@@ -2,15 +2,17 @@
 	"name"			: "eroroChat",
 	"version"		: "0.0.0",
 	"description"	: "realtime chat",
-	"main"			: "chat.js",
+	"main"			: "app.js",
 	"dependencies"	: {
 		"express"			: "*",
 		"socket.io"			: "*",
-		"mysql"				: "*"
+		"mysql"				: "*",
+    	"body-parser"		: "*",
+    	"ejs"				: "*"
 	},
 	"devDependencies": {},
 	"scripts"		: {
-		"start"			: "node chat.js"
+		"start"			: "node app.js"
 	},
 	"engines"		: {
 		"node"			: "0.11.11"

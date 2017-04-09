@@ -1,0 +1,57 @@
+/**
+* アプリ全体の設定やらいろいろ
+*
+* Created by aska-fun
+* Created on 2017/04/01
+* Updated by 
+* Updated on 
+**/
+
+/*
+ * モジュール
+ */
+//expressモジュールをロードし、インスタンス化してappに代入
+var express	= require('express'			);
+var app		= express();
+var http	= require('http').Server(app);
+var PORT	= process.env.PORT || 8080;
+
+/**
+ * Viewディレクトリを設定
+ **/
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
+/**
+ * ミドルウェア
+ * まだよくわかっていない
+ * 要勉強
+ **/
+// if access with name of filename, then responses the files
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use(session({
+	secret				: 'keyboard cat',
+	resave				: false,
+	saveUninitialized	: true
+}));
+
+/**
+ * 共通処理を呼び出し
+ **/
+var CommonConst					= require('./bin/CommonConst.js'							);
+var DbConnection				= require('./bin/DbConnection.js'							);
+
+
+/**
+ * コントローラ
+ **/
+//メニュー画面
+ChatController					= require("./routes/ChatController.js"					)(app, CommonConst, DbConnection);
+
+
+//接続待ち状態になる
+http.listen(PORT, function() {
+	console.log('接続開始：', PORT);
+});
