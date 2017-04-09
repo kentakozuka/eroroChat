@@ -70,6 +70,7 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 						'INSERT INTO t_user SET ?'
 					,	fields
 					,	function (error, results, fields) {
+							console.log('△△△△△△△△△△△');
 							if (error) throw error;
 								console.log(result.insertId);
 						}
@@ -79,8 +80,7 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 			});
 		})
 		//インサート処理後
-		.then(
-			function() {
+		.then(function() {
 				res.redirect(CommonConst.PAGE_ID_CHAT);
 			}
 		)
