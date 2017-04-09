@@ -82,7 +82,8 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 		})
 		//インサート処理後
 		.then(function() {
-				res.redirect(CommonConst.PAGE_ID_CHAT);
+				res.render(CommonConst.PAGE_ID_CHAT);
+				return;
 			}
 		)
 		//ユーザ重複の場合
