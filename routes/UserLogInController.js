@@ -72,7 +72,7 @@ var UserLogInController = function(app, CommonConst, DbConnection){
 				//セッションにユーザIDをいれる
      				req.session.user = user;
 				//メニューにリダイレクト
-     				res.redirect('/menu');
+     				res.redirect(CommonConst.PAGE_ID_CHAT);
 			//0件の場合
    			} else {
 				//ログイン画面に戻す
