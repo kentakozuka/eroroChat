@@ -59,7 +59,7 @@ var UserLogInController = function(app, CommonConst, DbConnection){
 	    		    }
 					resolve(rows);
 	    		});
-			}
+			});
 		})()
 		.then(function(results) {
 			//debug
