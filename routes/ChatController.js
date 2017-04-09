@@ -54,7 +54,7 @@ var ChatController = function(app, http, CommonConst, DbConnection){
 		io.emit('user cnt', userCnt);
 		
 		//DBから今までのメッセージを取ってきて自分だけに表示
-	    Dbconnection.query('SELECT * from t_comment', function(err, rows, fields) {
+	    DbConnection.query('SELECT * from t_comment', function(err, rows, fields) {
 	        if (err) {
 	            console.log('error: ', err);
 	            throw err;
@@ -77,7 +77,7 @@ var ChatController = function(app, http, CommonConst, DbConnection){
 			io.sockets.in(channel).emit('message', msj, socket.id);
 	
 			//DBに保存
-			Dbconnection.query(
+			DbConnection.query(
 					'INSERT INTO t_comment SET ?'
 				,	{user_id: socket.id, comment: msj}
 				,	function(err, result) {
