@@ -28,7 +28,15 @@ var ChatController = function(app, http, CommonConst, DbConnection){
 	
 	//ルートディレクトリにアクセスした時に動く処理
 	app.get('/', function(req, res) {
+
+		//セッションにユーザ情報がない場合
+		if (!req.session.user) {
+			res.redirect(CommonConst.PAGE_ID_USER_LOG_IN);
+			return;
+		}
+
 		res.render(CommonConst.PAGE_ID_CHAT
+
 			//, {
 			//	selectedExam			: req.body.exam_id
 			//,	selectedCategoryArray	: childCatQuesArray
