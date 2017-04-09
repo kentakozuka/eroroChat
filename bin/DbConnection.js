@@ -1,3 +1,11 @@
+/**
+* mysql接続処理
+*
+* Created by aska-fun
+* Created on 2017/04/01
+* Updated by 
+* Updated on 
+**/
 
 
 var mysql	= require('mysql'			);
@@ -39,4 +47,4 @@ function handleDisconnect() {
 
 console.log('DB connected');
 
-module.exports = mysql;
+module.exports = connection;
