@@ -64,6 +64,7 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 					reject();
 				}
 
+				console.log(fields);
 				//インサート
 				connection.query(
 						'INSERT INTO t_user SET ?'
@@ -73,6 +74,7 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 								console.log(result.insertId);
 						}
 				);
+				console.log('▲▲▲▲▲▲▲▲▲▲');
 				resolve();
 			});
 		})
