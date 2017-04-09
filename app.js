@@ -16,6 +16,7 @@ var app			= express();
 var http		= require('http').Server(app);
 var bodyParser	= require('body-parser'										);
 var session		= require('express-session'									);
+var passport	= require('passport');
 
 /**
  * Viewディレクトリを設定
@@ -37,6 +38,7 @@ app.use(session({
 	resave				: false,
 	saveUninitialized	: true
 }));
+app.use(passport.initialize());
 
 /**
  * 共通処理を呼び出し
@@ -51,6 +53,9 @@ console.log('▲▲▲' + DbConnection);
  **/
 //メニュー画面
 ChatController					= require("./routes/ChatController.js"					)(app, http, CommonConst, DbConnection);
+//ユーザ管理
+UserSignUpController			= require("./routes/UserSignUpController.js"			)(app, CommonConst, DbConnection);
+UserLogInController				= require("./routes/UserLogInController.js"				)(app, CommonConst, DbConnection);
 
 
 //接続待ち状態になる

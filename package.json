@@ -9,7 +9,9 @@
 		"mysql"				: "*",
     	"body-parser"		: "*",
     	"express-session"	: "*",
-    	"ejs"				: "*"
+    	"ejs"				: "*",
+    	"passport"			: "*",
+    	"passpord-local"	: "*"
 	},
 	"devDependencies": {},
 	"scripts"		: {

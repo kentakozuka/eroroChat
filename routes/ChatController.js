@@ -21,10 +21,10 @@ var ChatController = function(app, http, CommonConst, DbConnection){
 		}
 	
 	//スタイルシートを返す
-	app.get('/ero_style.css', function(req, res) {
-		//index.htmlに遷移する
-		res.sendFile(__dirname + '/ero_style.css');
-	});
+	//app.get('/ero_style.css', function(req, res) {
+		////index.htmlに遷移する
+		//res.sendFile(__dirname + '/ero_style.css');
+	//});
 	
 	//ルートディレクトリにアクセスした時に動く処理
 	app.get('/', function(req, res) {
