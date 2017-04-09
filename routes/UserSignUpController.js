@@ -71,7 +71,7 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 						}
 				);
 				resolve();
-			}
+			});
 		})
 		//インサート処理後
 		.then(
