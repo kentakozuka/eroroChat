@@ -16,7 +16,7 @@ var app			= express();
 var http		= require('http').Server(app);
 var bodyParser	= require('body-parser'										);
 var session		= require('express-session'									);
-var passport	= require('passport');
+//var passport	= require('passport');
 
 /**
  * Viewディレクトリを設定
