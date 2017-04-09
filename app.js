@@ -44,6 +44,7 @@ app.use(session({
 var CommonConst					= require('./bin/CommonConst.js'							);
 var DbConnection				= require('./bin/DbConnection.js'							);
 
+console.log('▲▲▲' + DbConnection);
 
 /**
  * コントローラ
