@@ -59,10 +59,10 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 
 				console.log(result);
 
+							console.log('△△△△△△△△△△△');
 				//ユーザ名重複チェック
 				var userNameExists = result.length === 1;
 				if (userNameExists) {
-							console.log('△△△△△△△△△△△');
 					reject();
 				}
 
