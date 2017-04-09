@@ -8,6 +8,7 @@
 		"socket.io"			: "*",
 		"mysql"				: "*",
     	"body-parser"		: "*",
+    	"express-session"	: "*",
     	"ejs"				: "*"
 	},
 	"devDependencies": {},
