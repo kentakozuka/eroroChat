@@ -11,10 +11,11 @@
  * モジュール
  */
 //expressモジュールをロードし、インスタンス化してappに代入
-var express	= require('express'			);
-var app		= express();
-var http	= require('http').Server(app);
-var PORT	= process.env.PORT || 8080;
+var express		= require('express'			);
+var app			= express();
+var http		= require('http').Server(app);
+var bodyParser	= require('body-parser'										);
+var session		= require('express-session'									);
 
 /**
  * Viewディレクトリを設定
@@ -52,6 +53,7 @@ ChatController					= require("./routes/ChatController.js"					)(app, CommonConst
 
 
 //接続待ち状態になる
+var PORT		= process.env.PORT || 8080;
 http.listen(PORT, function() {
 	console.log('接続開始：', PORT);
 });
