@@ -26,11 +26,6 @@ var ChatController = function(app, http, CommonConst, DbConnection){
 		//res.sendFile(__dirname + '/ero_style.css');
 	//});
 	
-	//ルートディレクトリにアクセスした時に動く処理
-	app.get('/', function(req, res) {
-		res.redirect(CommonConst.PAGE_ID_USER_LOG_IN);
-		return;
-	});
 
 	//ルートディレクトリにアクセスした時に動く処理
 	app.get('/chat', function(req, res) {
@@ -42,13 +37,6 @@ var ChatController = function(app, http, CommonConst, DbConnection){
 		}
 
 		res.render(CommonConst.PAGE_ID_CHAT
-
-			//, {
-			//	selectedExam			: req.body.exam_id
-			//,	selectedCategoryArray	: childCatQuesArray
-			//,	currentQuestion			: nextQuestion
-			//,	commingQuestion			: commingQuestionArray
-			//}
 		);
 	});
 	
