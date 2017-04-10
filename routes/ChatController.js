@@ -28,6 +28,12 @@ var ChatController = function(app, http, CommonConst, DbConnection){
 	
 	//ルートディレクトリにアクセスした時に動く処理
 	app.get('/', function(req, res) {
+		res.redirect(CommonConst.PAGE_ID_USER_LOG_IN);
+		return;
+	});
+
+	//ルートディレクトリにアクセスした時に動く処理
+	app.get('/chat', function(req, res) {
 
 		//セッションにユーザ情報がない場合
 		if (!req.session.user) {
@@ -50,7 +56,7 @@ var ChatController = function(app, http, CommonConst, DbConnection){
 	io.on('connection', function(socket) {
 	
 		//debug
-		console.log('%s さんが接続しました。', socket.id);
+		console.log('%s さんが接続しました。', req.session.user);
 	
 		//デフォルトのチャンネル
 		var channel = 'A';
@@ -72,7 +78,7 @@ var ChatController = function(app, http, CommonConst, DbConnection){
 			socket.emit('get id', socket.id);
 		
 			//接続時に同じチャンネルの人に入室を伝える
-			socket.broadcast.to(channel).emit('message', socket.id + 'さんが入室しました！', 'system'); 
+			socket.broadcast.to(channel).emit('message', req.session.user + 'さんが入室しました！', 'system'); 
 	    });
 		
 	
