@@ -16,6 +16,7 @@ var app			= express();
 var http		= require('http').Server(app);
 var bodyParser	= require('body-parser'										);
 var session		= require('express-session'									);
+var io			= require('socket.io')(http);
 //var passport	= require('passport');
 
 /**
@@ -52,7 +53,7 @@ console.log('▲▲▲' + DbConnection);
  * コントローラ
  **/
 //メニュー画面
-ChatController					= require("./routes/ChatController.js"					)(app, http, CommonConst, DbConnection);
+ChatController					= require("./routes/ChatController.js"					)(app, http, CommonConst, DbConnection, io);
 //ユーザ管理
 UserSignUpController			= require("./routes/UserSignUpController.js"			)(app, CommonConst, DbConnection);
 UserLogInController				= require("./routes/UserLogInController.js"				)(app, CommonConst, DbConnection);

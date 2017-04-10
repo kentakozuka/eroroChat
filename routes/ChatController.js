@@ -8,7 +8,7 @@
 **/
 
 
-var ChatController = function(app, http, CommonConst, DbConnection){
+var ChatController = function(app, http, CommonConst, DbConnection, io){
 
 	console.log('▲▲▲' + DbConnection);
 	var io		= require('socket.io')(http);
