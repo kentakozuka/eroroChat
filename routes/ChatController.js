@@ -34,7 +34,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 	io.on('connection', function(socket) {
 	
 		//debug
-		console.log('%s さんが接続しました。', req.session.user.user_name);
+		console.log('%s さんが接続しました。', socket.handshake.session.user.user_name);
 	
 		//デフォルトのチャンネル
 		var channel = 'A';
@@ -52,11 +52,11 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 	            throw err;
 	        }
 			//「ようこそ」と「ID」を自分の画面だけに表示
-			socket.emit('welcome', req.session.user.user_name, rows);
+			socket.emit('welcome', socket.handshake.session.user.user_name, rows);
 			socket.emit('get id', socket.id);
 		
 			//接続時に同じチャンネルの人に入室を伝える
-			socket.broadcast.to(channel).emit('message', req.session.user.user_name + 'さんが入室しました！', 'system'); 
+			socket.broadcast.to(channel).emit('message', socket.handshake.session.user.user_name + 'さんが入室しました！', 'system'); 
 	    });
 	
 		/**
@@ -65,13 +65,13 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 		 * @param	String	msj	ユーザが送信したメッセージ
 		 **/
 		socket.on('message', function(msj) {
-			io.sockets.in(channel).emit('message', req.session.user.user_name, msj);
+			io.sockets.in(channel).emit('message', socket.handshake.session.user.user_name, msj);
 	
 			//DBに保存
 			DbConnection.query(
 					'INSERT INTO t_comment SET ?'
 				,	{
-							user_name: req.session.user.user_name
+							user_name: socket.handshake.session.user.user_name
 						,	comment: msj
 					}
 				,	function(err, result) {
@@ -88,7 +88,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 		 * @param	String	e
 		 **/
 		socket.on('disconnect', function(e) {
-			console.log('%s さんが退室しました。', req.session.user.user_name);
+			console.log('%s さんが退室しました。', socket.handshake.session.user.user_name);
 			if (channel === 'A') {
 				userCnt.a--;
 		
@@ -109,7 +109,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 		 **/
 		socket.on('change channel', function(newChannel) {
 			//ルーム内の自分以外
-			socket.broadcast.to(channel).emit('message', req.session.user.user_name + 'さんが退室しました！', 'system');
+			socket.broadcast.to(channel).emit('message', socket.handshake.session.user.user_name + 'さんが退室しました！', 'system');
 			if (newChannel === 'A') {
 				++userCnt.a;
 				if (userCnt.b > 0) {
@@ -145,7 +145,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 			//チャンネルを変えたこと自分に送信
 			socket.emit('change channel', channel); 
 			//ルーム内の自分以外
-			socket.broadcast.to(channel).emit('message', req.session.user.user_name + 'さんが入室しました！', 'system');
+			socket.broadcast.to(channel).emit('message', socket.handshake.session.user.user_name + 'さんが入室しました！', 'system');
 		});
 	});
 };
