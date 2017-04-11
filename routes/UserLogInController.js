@@ -11,7 +11,6 @@ var UserLogInController = function(app, CommonConst, DbConnection){
 	//ルートディレクトリにアクセスした時に動く処理
 	app.get('/', function(req, res) {
 		res.redirect(CommonConst.PAGE_ID_USER_LOG_IN);
-		return;
 	});
 
 	//ログイン画面にGETしたときの処理

@@ -19,7 +19,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 		,	kentaBot	: 0
 	}
 	
-	//ルートディレクトリにアクセスした時に動く処理
+	// chatにアクセスした時に動く処理
 	app.get('/chat', function(req, res) {
 
 		//セッションにユーザ情報がない場合
@@ -33,6 +33,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 	//socket.ioに接続された時に動く処理
 	io.on('connection', function(socket) {
 	
+		console.log('connection established');
 		//debug
 		console.log('%s さんが接続しました。', socket.handshake.session.user.user_name);
 	
