@@ -70,7 +70,10 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 				//DBに保存
 				DbConnection.query(
 						'INSERT INTO t_comment SET ?'
-					,	{user_name: req.session.user.user_name, comment: msj}
+					,	{
+								user_name: req.session.user.user_name
+							,	comment: msj
+						}
 					,	function(err, result) {
 							if (err) throw err;
 							console.log(result.insertId);
