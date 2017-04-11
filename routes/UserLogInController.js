@@ -75,13 +75,14 @@ var UserLogInController = function(app, CommonConst, DbConnection){
    			var user = results.length? results[0]: false;
 			//1件以上の場合
    			if (user) {
+				console.log('user exist');
 				//セッションにuserを追加
 				req.session.user = {
 					user_name: user.user_name
 				};
 				req.session.save();
-				// チャット画面にリダイレクト
-     			res.redirect(CommonConst.PAGE_ID_CHAT);
+				// チャット画面に遷移
+     			res.render(CommonConst.PAGE_ID_CHAT);
 			//0件の場合
    			} else {
 				//ログイン画面に戻す
