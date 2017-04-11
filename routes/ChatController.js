@@ -11,6 +11,7 @@
 var ChatController = function(app, http, CommonConst, DbConnection, io){
 
 	console.log('▲▲▲' + DbConnection);
+	console.log('▲▲▲' + io);
 
 	//ユーザ数を格納する変数
 	var userCnt = {
@@ -27,6 +28,8 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 			res.redirect(CommonConst.PAGE_ID_USER_LOG_IN);
 			return;
 		}
+		console.log('▲▲▲' + DbConnection);
+		console.log('▲▲▲' + io);
 		res.redirect(CommonConst.PAGE_ID_CHAT);
 	});
 	
