@@ -77,6 +77,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 						}
 				);
 			});
+
 			
 			/**
 			 * 'disconnect'イベント関数
