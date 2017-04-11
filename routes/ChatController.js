@@ -30,7 +30,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 		}
 		console.log('▲▲▲' + DbConnection);
 		console.log('▲▲▲' + io);
-		res.redirect(CommonConst.PAGE_ID_CHAT);
+		res.render(CommonConst.PAGE_ID_CHAT);
 	});
 	
 	//socket.ioに接続された時に動く処理
