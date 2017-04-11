@@ -17,7 +17,8 @@ function handleDisconnect() {
 	// Recreate the connection, since
 	// the old one cannot be reused.
 	// The server is either down
-	connection = mysql.createConnection(process.env.DATABASE_URL);
+	//connection = mysql.createConnection(process.env.DATABASE_URL);
+	connection = mysql.createPool(process.env.DATABASE_URL);
     connection.connect(function(err) {              	
 		// or restarting (takes a while sometimes).
         if (err) {                                     

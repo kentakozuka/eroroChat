@@ -29,8 +29,8 @@ app.set('view engine', 'ejs');
 /**
  * 共通処理を呼び出し
  **/
-var CommonConst					= require('./bin/CommonConst.js'							);
-var DbConnection				= require('./bin/DbConnection.js'							);
+var CommonConst		= require('./bin/CommonConst.js'							);
+var DbConnection	= require('./bin/DbConnection.js'							);
 
 console.log('▲▲▲' + DbConnection);
 
