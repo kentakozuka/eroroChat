@@ -10,7 +10,7 @@
     	"body-parser"		: "*",
     	"express-session"	: "*",
     	"ejs"				: "*",
-		"express-socket.io-session_sample" : "*"
+		"express-socket.io-session" : "*"
 	},
 	"devDependencies": {},
 	"scripts"		: {

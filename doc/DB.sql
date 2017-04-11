@@ -14,7 +14,7 @@ CREATE TABLE t_comment (
 	,	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT character set utf8mb4;
 -- USER
-DROP TABLE IF EXISTS USER;
+DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE t_user (
 		id					INT AUTO_INCREMENT
 	,	user_name			VARCHAR(20)
