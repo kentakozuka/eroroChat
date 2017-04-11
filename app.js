@@ -11,12 +11,13 @@
  * モジュール
  */
 //expressモジュールをロードし、インスタンス化してappに代入
-var express		= require('express'			);
-var app			= express();
-var http		= require('http').Server(app);
-var bodyParser	= require('body-parser'										);
-var session		= require('express-session'									);
-var io			= require('socket.io')(http);
+var express			= require('express'			);
+var app				= express();
+var http			= require('http').Server(app);
+var bodyParser		= require('body-parser'										);
+var session			= require("express-session");
+var io				= require('socket.io')(http);
+var sharedsession	= require("express-socket.io-session");
 //var passport	= require('passport');
 
 /**
@@ -26,9 +27,15 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 /**
+ * 共通処理を呼び出し
+ **/
+var CommonConst					= require('./bin/CommonConst.js'							);
+var DbConnection				= require('./bin/DbConnection.js'							);
+
+console.log('▲▲▲' + DbConnection);
+
+/**
  * ミドルウェア
- * まだよくわかっていない
- * 要勉強
  **/
 // if access with name of filename, then responses the files
 app.use(express.static(__dirname + '/public'));
@@ -39,15 +46,11 @@ app.use(session({
 	resave				: false,
 	saveUninitialized	: true
 }));
+io.use(sharedsession(session, {
+  autoSave: true
+}));
 //app.use(passport.initialize());
 
-/**
- * 共通処理を呼び出し
- **/
-var CommonConst					= require('./bin/CommonConst.js'							);
-var DbConnection				= require('./bin/DbConnection.js'							);
-
-console.log('▲▲▲' + DbConnection);
 
 /**
  * コントローラ

@@ -19,7 +19,7 @@ var UserLogInController = function(app, CommonConst, DbConnection){
 		//セッション情報がある場合
   		if(req.session && req.session.user) {
 			//メニュー画面にリダイレクト
-    		res.redirect('/menu');
+    		res.redirect('/chat');
 		//セッション情報がない場合
   		} else {
 			//ログイン画面のレンダリング実行
@@ -75,10 +75,13 @@ var UserLogInController = function(app, CommonConst, DbConnection){
    			var user = results.length? results[0]: false;
 			//1件以上の場合
    			if (user) {
-				//セッションにユーザIDをいれる
-     				req.session.user = user;
-				//メニューにリダイレクト
-     				res.redirect(CommonConst.PAGE_ID_CHAT);
+				//セッションにuserを追加
+				req.session.user = {
+					user_name: user.user_name
+				};
+				req.session.save();
+				// チャット画面にリダイレクト
+     			res.redirect(CommonConst.PAGE_ID_CHAT);
 			//0件の場合
    			} else {
 				//ログイン画面に戻す

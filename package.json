@@ -9,7 +9,8 @@
 		"mysql"				: "*",
     	"body-parser"		: "*",
     	"express-session"	: "*",
-    	"ejs"				: "*"
+    	"ejs"				: "*",
+		"express-socket.io-session_sample" : "*"
 	},
 	"devDependencies": {},
 	"scripts"		: {

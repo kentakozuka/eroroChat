@@ -9,7 +9,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `t_comment`;
 CREATE TABLE t_comment (
 		`id`				SMALLINT(6)		NOT NULL AUTO_INCREMENT
-	,	`user_id`			VARCHAR(100)	DEFAULT NULL
+	,	`user_name`			VARCHAR(100)	DEFAULT NULL
 	,	`comment`			VARCHAR(100)	DEFAULT NULL
 	,	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT character set utf8mb4;
