@@ -12,12 +12,12 @@ var mysql	= require('mysql'			);
 //DBに接続する関数
 var connection;
 function handleDisconnect() {
-    console.log('1. DBｎ接続します:');		
+    console.log('DBに接続します:');		
 	connection = mysql.createConnection(process.env.DATABASE_URL);
     connection.connect(function(err) {              	
 		// or restarting (takes a while sometimes).
         if (err) {                                     
-            console.log('2. error when connecting to db:', err);
+            console.log('error when connecting to db:', err);
 			// We introduce a delay before attempting to reconnect,
 			// to avoid a hot loop, and to allow our node script to
 			// process asynchronous requests in the meantime.
@@ -28,7 +28,7 @@ function handleDisconnect() {
 
 	//エラーを受け取る
     connection.on('error', function(err) {
-        console.log('3. DBエラー', err);
+        console.log('DBエラー', err);
         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
 			//再接続
             handleDisconnect();
