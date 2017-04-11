@@ -61,7 +61,7 @@ $(function() {
  **/
 socket.on('welcome', function(user_name, messageArray) {
 	//debug
-	//console.log(messageArray);
+	console.log(messageArray);
 
 	//取得したメッセージをulに追加
 	$('#message').append($('<li>').text('ようこそ' + user_name + 'さん'));

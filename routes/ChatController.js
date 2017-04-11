@@ -10,7 +10,6 @@
 
 var ChatController = function(app, http, CommonConst, DbConnection, io){
 
-	console.log('▲▲▲' + DbConnection);
 	console.log('▲▲▲' + io);
 
 	//ユーザ数を格納する変数
@@ -28,15 +27,13 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 			res.redirect(CommonConst.PAGE_ID_USER_LOG_IN);
 			return;
 		}
-		console.log('▲▲▲' + DbConnection);
-		console.log('▲▲▲' + io);
 		res.render(CommonConst.PAGE_ID_CHAT);
 	});
 	
 	//socket.ioに接続された時に動く処理
 	io.on('connection', function(socket) {
 	
-		console.log('connection established');
+		console.log('▲▲▲connection established');
 		//debug
 		console.log('%s さんが接続しました。', socket.handshake.session.user.user_name);
 	
