@@ -33,7 +33,7 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 		queryArray.push('FROM'							);
 		queryArray.push(CommonConst.TABLE_NAME_USER		);
 		queryArray.push('WHERE'							);
-		queryArray.push('USER_NAME='						);
+		queryArray.push('user_name='						);
 		queryArray.push('\'' + req.body.user_name + '\''	);
 		queryArray.push('LIMIT 1'						);
 		//クエリを結合
