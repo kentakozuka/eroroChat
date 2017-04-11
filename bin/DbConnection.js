@@ -7,18 +7,13 @@
 * Updated on 
 **/
 
-
 var mysql	= require('mysql'			);
 
 //DBに接続する関数
 var connection;
 function handleDisconnect() {
     console.log('1. DBｎ接続します:');		
-	// Recreate the connection, since
-	// the old one cannot be reused.
-	// The server is either down
-	//connection = mysql.createConnection(process.env.DATABASE_URL);
-	connection = mysql.createPool(process.env.DATABASE_URL);
+	connection = mysql.createConnection(process.env.DATABASE_URL);
     connection.connect(function(err) {              	
 		// or restarting (takes a while sometimes).
         if (err) {                                     
@@ -31,21 +26,18 @@ function handleDisconnect() {
         }
     });
 
-	// Connection to the MySQL server is usually
-	// lost due to either server restart, or a
-	// connnection idle timeout (the wait_timeout
-	// server variable configures this)
+	//エラーを受け取る
     connection.on('error', function(err) {
         console.log('3. DBエラー', err);
         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+			//再接続
             handleDisconnect();
         } else {
             throw err;
         }
-		console.log('DBに接続しました');
+		console.log('DBに再接続しました');
     });
 }
 handleDisconnect();
-
 
 module.exports = connection;
