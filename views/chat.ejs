@@ -115,6 +115,14 @@ socket.on('change channel', function(channel) {
 socket.on('get id', function(id) {
 	$('#user_name p').html('').text(id);
 });
+
+/**
+ * ルートにリダイレクトするイベント
+ **/
+server.on('redirect', function(destination) {
+	window.location.href = destination;
+});
+
 </script>
 	<div id="info">
 		<div id="user_name">あなたのID&nbsp;:&nbsp;<p></p></div>

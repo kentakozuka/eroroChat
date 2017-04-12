@@ -39,7 +39,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
   		if(		socket.handshake.session
 			&&	socket.handshake.session.user
 			&&	socket.handshake.session.user.user_name) {
-			res.redirect(CommonConst.PAGE_ID_USER_LOG_IN);
+			socket.emit('redirect', '/');
 			return;
 		}
 		//debug
