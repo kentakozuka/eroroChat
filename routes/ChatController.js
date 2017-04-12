@@ -62,6 +62,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 	            throw err;
 	        }
 			//「ようこそ」と「ID」を自分の画面だけに表示
+	        console.log(socket.handshake.session.user.user_name);
 			socket.emit('welcome', socket.handshake.session.user.user_name, rows);
 			socket.emit('get user_name', socket.handshake.session.user.user_name);
 		
