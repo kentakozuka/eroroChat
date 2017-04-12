@@ -73,11 +73,13 @@ socket.on('welcome', function(user_name, messageArray) {
 	//DBから取得したメッセージをulに追加
 	messageArray.forEach(function(msg) {
 		//自分のIDの場合は右に表示
-		if(msg.user_name == user_name) {
-			$('#message').append($('<li class="right_balloon">').text(user_name + " : " + msg.comment));
+		var whichBaloon = '';
+		if(userName == user_name) {
+			whichBaloon = 'right';
 		} else {
-			$('#message').append($('<li class="left_balloon">').text(user_name + " : " + msg.comment));
+			whichBaloon = 'left';
 		}
+		$('#message').append($('<li class="' + whichBaloon + '_balloon">').text(user_name + " : " + msg.comment));
 	});
 });
 
@@ -97,11 +99,13 @@ socket.on('user cnt', function(cnt) {
 socket.on('message', function(user_name, msg) {
 	// 取得したメッセージをulに追加
 	//自分のIDの場合は右に表示
-	if(msg.user_name == user_name) {
-		$('#message').append($('<li class="right_balloon">').text(user_name + " : " + msg));
+	var whichBaloon = '';
+	if(userName == user_name) {
+		whichBaloon = 'right';
 	} else {
-		$('#message').append($('<li class="left_balloon">').text(user_name + " : " + msg));
+		whichBaloon = 'left';
 	}
+	$('#message').append($('<li class="' + whichBaloon + '_balloon">').text(user_name + " : " + msg));
 });
 
 /**
