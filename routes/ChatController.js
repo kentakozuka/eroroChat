@@ -36,7 +36,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 		console.log('▲▲▲connection established');
 
 		//セッションにユーザ情報がない場合
-  		if(req.session && req.session.user) {
+  		if(socket.handshake.session.user && socket.handshake.session.user) {
 			res.redirect(CommonConst.PAGE_ID_USER_LOG_IN);
 			return;
 		}
