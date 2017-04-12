@@ -75,12 +75,12 @@ socket.on('welcome', function(user_name, messageArray) {
 	messageArray.forEach(function(msg) {
 		//自分のIDの場合は右に表示
 		var whichBaloon = '';
-		if(msg.user_name == user_name) {
+		if(msg.user_name == userName) {
 			whichBaloon = 'right';
 		} else {
 			whichBaloon = 'left';
 		}
-		$('#message').append($('<li class="' + whichBaloon + '_balloon">').text(user_name + " : " + msg.comment));
+		$('#message').append($('<li class="' + whichBaloon + '_balloon">').text(msg.user_name + " : " + msg.comment));
 	});
 });
 
