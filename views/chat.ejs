@@ -134,6 +134,7 @@ socket.on('redirect', function(destination) {
 
 </script>
 	<div id="info">
+		<!--TODO:下記はexpressのバインドを使えば簡単にかける-->
 		<div id="user_name">あなたのID&nbsp;:&nbsp;<p></p></div>
 		<div id="user_cnt">アクティブユーザ&nbsp;:&nbsp;<p></p></div>
 	</div>
@@ -141,6 +142,7 @@ socket.on('redirect', function(destination) {
 	<div id="controls">
 		<form action="">
 			<select name="channel" id="channel">
+				<!--チャンネルも動的にオプションを変更可能-->
 				<option value="A" selected>Aカップ</option>
 				<option value="B">Bカップ</option>
 				<option value="kenta_bot">kentaのbotチャンネル</option>
@@ -150,6 +152,8 @@ socket.on('redirect', function(destination) {
 				<input class="button" type="submit" value="送信" class="send_button">
 		</div>
 	</form> 
+	<br/>
+	<a href="/user_log_out" class="btn">ログアウト</a></br>
  </div>
 </body>
 </html>

@@ -19,6 +19,24 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 		,	kentaBot	: 0
 	}
 	
+	/*
+	 * user_log_outにアクセスした時に動く処理
+	 */
+	app.get('/user_log_out', function(req, res) {
+		//セッション情報を破棄
+		req.session.destroy();
+		//ログインにリダイレクト
+		res.redirect(CommonConst.PAGE_ID_USER_LOG_IN);
+	});
+
+		//セッションにユーザ情報がない場合
+  		if(req.session && req.session.user) {
+			res.redirect(CommonConst.PAGE_ID_USER_LOG_IN);
+			return;
+		}
+		res.render(CommonConst.PAGE_ID_CHAT);
+	});
+
 	// chatにアクセスした時に動く処理
 	app.get('/chat', function(req, res) {
 
