@@ -29,13 +29,13 @@ $(function() {
  	**/
 	$('form').submit(function() {
 		// メッセージを取得
-		var mensaje = $('#msj').val();
+		var message = $('#msj').val();
 		
 		// メッセージがなければ終了 
-		if (mensaje === '') return false;
+		if (message === '') return false;
 		
 		// メッセージを送信
-		socket.emit('message', mensaje);
+		socket.emit('message', userName, message);
 		
 		// メッセージの中身を空にしえフォーカスする
 		$('#msj').val('').focus();
@@ -64,7 +64,7 @@ socket.on('welcome', function(user_name, messageArray) {
 	//debug
 	console.log(messageArray);
 
-	userName = user_name
+	userName = user_name;
 
 	//取得したメッセージをulに追加
 	$('#message').append($('<li>').text('ようこそ' + user_name + 'さん'));
