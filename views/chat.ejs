@@ -65,6 +65,7 @@ socket.on('welcome', function(user_name, messageArray) {
 	console.log(messageArray);
 	console.log(user_name);
 
+	//クライアントでユーザ名を保持する
 	userName = user_name;
 
 	//取得したメッセージをulに追加
@@ -74,7 +75,7 @@ socket.on('welcome', function(user_name, messageArray) {
 	messageArray.forEach(function(msg) {
 		//自分のIDの場合は右に表示
 		var whichBaloon = '';
-		if(userName == user_name) {
+		if(msg.userName == user_name) {
 			whichBaloon = 'right';
 		} else {
 			whichBaloon = 'left';
