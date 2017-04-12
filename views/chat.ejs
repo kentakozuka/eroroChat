@@ -90,13 +90,13 @@ socket.on('user cnt', function(cnt) {
  * @param メッセージ
  * @param ユーザID
  **/
-socket.on('message', function(user_name, msj) {
+socket.on('message', function(user_name, msg) {
 	// 取得したメッセージをulに追加
 	//自分のIDの場合は右に表示
 	if(msg.user_name == user_name) {
-		$('#message').append($('<li class="right_balloon">').text(user_name + " : " + msj));
+		$('#message').append($('<li class="right_balloon">').text(user_name + " : " + msg));
 	} else {
-		$('#message').append($('<li class="left_balloon">').text(user_name + " : " + msj));
+		$('#message').append($('<li class="left_balloon">').text(user_name + " : " + msg));
 	}
 });
 
@@ -119,7 +119,7 @@ socket.on('get user_name', function(user_name) {
 /**
  * ルートにリダイレクトするイベント
  **/
-server.on('redirect', function(destination) {
+socket.on('redirect', function(destination) {
 	window.location.href = destination;
 });
 
