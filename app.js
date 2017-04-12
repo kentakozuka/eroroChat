@@ -55,9 +55,7 @@ io.use(sharedsession(session, {
 /**
  * コントローラ
  **/
-//メニュー画面
 ChatController					= require("./routes/ChatController.js"					)(app, http, CommonConst, DbPool, io);
-//ユーザ管理
 UserSignUpController			= require("./routes/UserSignUpController.js"			)(app, CommonConst, DbPool);
 UserLogInController				= require("./routes/UserLogInController.js"				)(app, CommonConst, DbPool);
 
