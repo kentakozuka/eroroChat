@@ -75,23 +75,22 @@ var UserSignUpController = function(app, CommonConst, pool){
 				}
 
 				console.log(fields);
-					pool.getConnection(function(err, connection) {
-						// Use the connection
-						//インサート
-						pool.query(
-								'INSERT INTO t_user SET ?'
-							,	fields
-							,	function (error, results, fields) {
-									if (error) throw error;
-										console.log(result.insertId);
-									console.log('▲▲▲▲▲▲▲▲▲▲');
-									resolve();
-									// プールに戻す
-									// これ以降connectionをつかっちゃだめだよ。すでにプールに返しちゃったからね。
-									connection.release();
-								}
-						);
-					});
+				pool.getConnection(function(err, connection) {
+					// Use the connection
+					//インサート
+					pool.query(
+							'INSERT INTO t_user SET ?'
+						,	fields
+						,	function (error, results, fields) {
+								if (error) throw error;
+									console.log(result.insertId);
+								console.log('▲▲▲▲▲▲▲▲▲▲');
+								resolve();
+								// プールに戻す
+								// これ以降connectionをつかっちゃだめだよ。すでにプールに返しちゃったからね。
+								connection.release();
+							}
+					);
 				});
 			});
 		})
