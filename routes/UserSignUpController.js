@@ -1,5 +1,5 @@
 /**
-* ユーザログイン画面のコントローラ
+* ユーザ新規登録画面のコントローラ
 *
 * Created by Kozuka
 * Created on 2017/03/24
@@ -85,7 +85,7 @@ var UserSignUpController = function(app, CommonConst, pool){
 								console.log('▲▲▲▲▲▲▲▲▲▲');
 								resolve();
 								// プールに戻す
-								// これ以降connectionをつかっちゃだめだよ。すでにプールに返しちゃったからね。
+								// これ以降connectionは使用不可。
 								connection.release();
 							}
 					);
