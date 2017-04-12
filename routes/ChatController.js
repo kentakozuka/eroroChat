@@ -39,6 +39,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
   		if(		socket.handshake.session
 			&&	socket.handshake.session.user
 			&&	socket.handshake.session.user.user_name) {
+			console.log('▲▲▲リダイレクトさせます');
 			socket.emit('redirect', '/');
 			return;
 		}
