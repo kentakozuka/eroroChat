@@ -76,13 +76,13 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 		 * @param	String	msj	ユーザが送信したメッセージ
 		 **/
 		socket.on('message', function(userName, msj) {
-			io.sockets.in(channel).emit('message', socket.handshake.session.user.user_name, msj);
+			io.sockets.in(channel).emit('message', userName, msj);
 	
 			//DBに保存
 			DbConnection.query(
 					'INSERT INTO t_comment SET ?'
 				,	{
-							user_name: socket.handshake.session.user.user_name
+							user_name: userName
 						,	comment: msj
 					}
 				,	function(err, result) {
