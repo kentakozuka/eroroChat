@@ -75,7 +75,7 @@ socket.on('welcome', function(user_name, messageArray) {
 	messageArray.forEach(function(msg) {
 		//自分のIDの場合は右に表示
 		var whichBaloon = '';
-		if(msg.userName == user_name) {
+		if(msg.user_name == user_name) {
 			whichBaloon = 'right';
 		} else {
 			whichBaloon = 'left';
