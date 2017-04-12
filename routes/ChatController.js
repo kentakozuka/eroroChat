@@ -29,14 +29,6 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 		res.redirect(CommonConst.PAGE_ID_USER_LOG_IN);
 	});
 
-		//セッションにユーザ情報がない場合
-  		if(req.session && req.session.user) {
-			res.redirect(CommonConst.PAGE_ID_USER_LOG_IN);
-			return;
-		}
-		res.render(CommonConst.PAGE_ID_CHAT);
-	});
-
 	// chatにアクセスした時に動く処理
 	app.get('/chat', function(req, res) {
 
