@@ -98,9 +98,9 @@ socket.on('message', function(user_name, msg) {
 	// 取得したメッセージをulに追加
 	//自分のIDの場合は右に表示
 	if(msg.user_name == user_name) {
-		$('#message').append($('<li class="right_balloon">').text(msg.user_name + " : " + msg));
+		$('#message').append($('<li class="right_balloon">').text(user_name + " : " + msg));
 	} else {
-		$('#message').append($('<li class="left_balloon">').text(msg.user_name + " : " + msg));
+		$('#message').append($('<li class="left_balloon">').text(user_name + " : " + msg));
 	}
 });
 

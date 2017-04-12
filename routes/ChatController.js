@@ -75,7 +75,7 @@ var ChatController = function(app, http, CommonConst, DbConnection, io){
 		 * 同じチャンネルの人にメッセージを送る
 		 * @param	String	msj	ユーザが送信したメッセージ
 		 **/
-		socket.on('message', function(msj) {
+		socket.on('message', function(userName, msj) {
 			io.sockets.in(channel).emit('message', socket.handshake.session.user.user_name, msj);
 	
 			//DBに保存
