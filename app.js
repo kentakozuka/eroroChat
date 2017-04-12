@@ -15,8 +15,12 @@ var express			= require('express'			);
 var app				= express();
 var http			= require('http').createServer(app);
 var bodyParser		= require('body-parser'				);
-var session			= require("express-session");
 var io				= require('socket.io')(http);
+var session			= require("express-session")({
+	secret				: 'keyboard cat',
+	resave				: false,
+	saveUninitialized	: true
+});
 var sharedsession	= require("express-socket.io-session");
 //var passport	= require('passport');
 
@@ -41,11 +45,7 @@ console.log('▲▲▲' + DbConnection);
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(session({
-	secret				: 'keyboard cat',
-	resave				: false,
-	saveUninitialized	: true
-}));
+app.use(session);
 io.use(sharedsession(session, {
   autoSave: true
 }));
