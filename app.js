@@ -13,7 +13,7 @@
 //expressモジュールをロードし、インスタンス化してappに代入
 var express			= require('express'			);
 var app				= express();
-var http			= require('http').Server(app);
+var http			= require('http').createServer(app);
 var bodyParser		= require('body-parser'				);
 var session			= require("express-session");
 var io				= require('socket.io')(http);
