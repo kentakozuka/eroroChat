@@ -9,14 +9,14 @@
 var UserSignUpController = function(app, CommonConst, pool){
 
 	//ユーザ登録画面にGETしたときの処理
-	app.get('/user_sign_up', function(req, res, next) {
-  		res.render(CommonConst.PAGE_ID_USER_SIGN_UP, {
-    		title: '新規会員登録'
+	app.get('/user_log_in', function(req, res, next) {
+  		res.render(CommonConst.PAGE_ID_USER_LOG_IN, {
+    		title: 'ログイン画面'
   		});
 	});
 
 	//登録ボタンをクリックしたときの処理
-	app.post('/user_sign_up', function(req, res, next) {
+	app.post('/user_log_in', function(req, res, next) {
 
 		//フィールド
 		var fields  = {
