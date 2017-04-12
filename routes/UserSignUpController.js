@@ -83,6 +83,11 @@ var UserSignUpController = function(app, CommonConst, DbConnection){
 		})
 		//インサート処理後
 		.then(function() {
+				//セッションにuserを追加
+				req.session.user = {
+					user_name: req.body.user_name
+				};
+				req.session.save();
 				res.render(CommonConst.PAGE_ID_CHAT);
 				return;
 			}
