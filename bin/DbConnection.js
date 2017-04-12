@@ -12,7 +12,7 @@ var mysql	= require('mysql'			);
 //DBに接続する関数
 var connection;
 function handleDisconnect() {
-    console.log('DBに接続します:');		
+    console.log('DBに接続します');		
 	connection = mysql.createConnection(process.env.DATABASE_URL);
     connection.connect(function(err) {              	
 		// or restarting (takes a while sometimes).
@@ -23,7 +23,9 @@ function handleDisconnect() {
 			// process asynchronous requests in the meantime.
 			// If you're also serving http, display a 503 error.
             setTimeout(handleDisconnect, 1000); 
-        }
+        } else {
+    		console.log('DBに接続しました');		
+		}
     });
 
 	//エラーを受け取る
@@ -35,7 +37,6 @@ function handleDisconnect() {
         } else {
             throw err;
         }
-		console.log('DBに再接続しました');
     });
 }
 handleDisconnect();
