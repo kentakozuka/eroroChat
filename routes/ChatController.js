@@ -162,7 +162,7 @@ var ChatController = function(app, http, CommonConst, pool, io){
 			//チャンネルを変えたこと自分に送信
 			socket.emit('change channel', channel); 
 
-			sendPastMsg(pool, socket)
+			sendPastMsg(pool, socket, channel)
 			.tellEveryoneWhoEnter(socket, channel);
 		});
 	});
@@ -172,7 +172,7 @@ var ChatController = function(app, http, CommonConst, pool, io){
 	* @param socket
 	* @return Promise
 	**/
-	function sendPastMsg(pool, socket,channel) {
+	function sendPastMsg(pool, socket, channel) {
 		return new Promise(function(resolve, reject) {
 			pool.getConnection(function(err, connection) {
 				//クエリ実行
