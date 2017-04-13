@@ -84,8 +84,9 @@ var ChatController = function(app, http, CommonConst, pool, io){
 				connection.query(
 						'INSERT INTO t_comment SET ?'
 					,	{
-								user_name: userName
-							,	comment: msj
+								user_name	: userName
+							,	channel		:channel
+							,	comment		: msj
 						}
 					,	function(err, result) {
 							if (err) throw err;
@@ -176,7 +177,7 @@ var ChatController = function(app, http, CommonConst, pool, io){
 		return new Promise(function(resolve, reject) {
 			pool.getConnection(function(err, connection) {
 				//クエリ実行
-	    		connection.query('SELECT * from t_comment', function(err, rows, fields) {
+	    		connection.query('SELECT * from t_comment where channel = ' + channel, function(err, rows, fields) {
 	        		if (err) {
 	            		console.log('error: ', err);
 	            		throw err;
