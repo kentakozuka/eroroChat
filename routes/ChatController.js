@@ -65,7 +65,7 @@ var ChatController = function(app, http, CommonConst, pool, io){
 		//全ユーザ上のユーザ数を更新
 		io.emit('user cnt', userCnt);
 		
-		sendPastMsg(pool, socket)
+		sendPastMsg(pool, socket, channel)
 		.tellEveryoneWhoEnter(socket, channel);
 
 	
@@ -172,7 +172,7 @@ var ChatController = function(app, http, CommonConst, pool, io){
 	* @param socket
 	* @return Promise
 	**/
-	function sendPastMsg(pool, socket) {
+	function sendPastMsg(pool, socket,channel) {
 		return new Promise(function(resolve, reject) {
 			pool.getConnection(function(err, connection) {
 				//クエリ実行
