@@ -66,7 +66,7 @@ var ChatController = function(app, http, CommonConst, pool, io){
 		io.emit('user cnt', userCnt);
 		
 		sendPastMsg(pool, socket, channel)
-		.tellEveryoneWhoEnter(socket, channel);
+		.then(tellEveryoneWhoEnter(socket, channel));
 
 	
 		/**
@@ -163,7 +163,7 @@ var ChatController = function(app, http, CommonConst, pool, io){
 			socket.emit('change channel', channel); 
 
 			sendPastMsg(pool, socket, channel)
-			.tellEveryoneWhoEnter(socket, channel);
+			.then(tellEveryoneWhoEnter(socket, channel));
 		});
 	});
 	/**
@@ -191,7 +191,7 @@ var ChatController = function(app, http, CommonConst, pool, io){
 					// プールに戻す
 					// これ以降connectionは使用不可。
 					connection.release();
-					resolve();
+					resolve(socket, channel);
 				});
 			});
 		});
