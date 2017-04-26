@@ -1,63 +1,68 @@
 #!/bin/sh
 
-echo "セットアップを開始します"
+#文字に色を付けたければ以下参照
+#\e[文字色2桁;背景色2桁m
+#例）
+# echo -e "\033[0;31mテキスト\033[0;39m"
 
+echo "セットアップを開始します"
+echo 
 echo -n herokuのアカウントは登録済ですか? [y/n]
 read answer
 if [ "$answer" != "y" ]; then
 	echo "アカウントを登録しましょう"
 	exit;
 fi
-
+echo 
 echo -n heroku cliコマンドはインストール済ですか? [y/n]
 read answer
 if [ "$answer" != "y" ]; then
 	echo "まずはheroku cliで検索してみましょう"
 	exit;
 fi
-
+echo 
 echo -n herokuのアカウントにクレジットカード情報を登録していますか? [y/n]
 read answer
 if [ "$answer" != "y" ]; then
 	echo "クレジットカードを登録してください。心配ありません。これから使用するサービスはすべて無料です。"
 	exit;
 fi
-
+echo 
 echo -n 自分のレポジトリにフォークしたeroroChatプロジェクトをクローンしましたか? [y/n]
 read answer
 if [ "$answer" != "y" ]; then
 	echo "git clone <自分のレポジトリ>を叩いてクローンしてください"
 	exit;
 fi
-
+echo 
 echo -n プロジェクトディレクトリ直下にいますか? [y/n]
 read answer
 if [ "$answer" != "y" ]; then
 	echo "cd eroroChatで移動してください"
 	exit;
 fi
-
+echo 
 echo -n 最近疲れていますか? [y/n]
 read answer
 if [ "$answer" != "n" ]; then
 	echo "まずは休息を取りましょう。元気なあなたが私は好きです。"
 	exit;
 fi
-
+echo 
 echo "herokuにログインします"
 heroku login
 echo "ログインしました"
-
+echo 
 echo "herokuアプリを作成します"
 echo -n アプリ名を入力してください（半角英数字） :
 read app_name
 heroku create $app_name
 echo "アプリを作成しました"
-
+echo 
 echo "アプリにclearDB MySQLアドオンを追加します"
 heroku addons:create cleardb:ignite --app $app_name
 echo "アドオンを追加しました"
-
+echo 
 echo "DBに接続してテーブルを作成します"
 #mysql -h us-cdbr-iron-east-03.cleardb.net -u bac9292c240c4a -p
 db_config=`heroku config --app $app_name | grep CLEARDB_DATABASE_URL`
@@ -101,7 +106,7 @@ echo
 echo -n OK?
 read answer
 echo 
-echo それとあとひとつだけ設定することがある。
+echo それとあとひとつだけ設定することがあります
 echo herokuのサイトにログインして、自動デプロイを有効にして自分のレポジトリを連携させるとレポジトリが変更されたら自動的にデプロイがキックされる。これ便利
 echo 残念ながらこれはコマンドからはできない（たぶん）からそれぞれお願いしまーす
 echo 
