@@ -74,4 +74,12 @@ source ./doc/DB.sql;
 
 EOF
 
+echo "テーブルを作成しました"
+
+echo "herokuのレポジトリにプッシュしてデプロイします"
+git add .
+git commit -m "heroku deploy"
+git push heroku master
+echo "エラーがでていなければデプロイが完了しています"
+echo 試しにhttp://$app_name.herokuapp.comにアクセスしてみましょう！
 
