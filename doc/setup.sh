@@ -83,11 +83,16 @@ git push heroku master
 echo "エラーがでていなければデプロイが完了しています"
 echo 試しにhttp://$app_name.herokuapp.comにアクセスしてみましょう！
 echo 
+echo -n OK?
+read answer
 echo 
 echo これからはソースを修正したら、以下のコードを実行すると自分のフォークしたレポジトリにプッシュできるよ
 echo git add .
 echo git commit -m \"なんかコメント\"
 echo git push origin master
+echo 
+echo -n OK?
+read answer
 echo 
 echo それとあとひとつだけ設定することがある。
 echo herokuのサイトにログインして、自動デプロイを有効にして自分のレポジトリを連携させるとレポジトリが変更されたら自動的にデプロイがキックされる。これ便利
